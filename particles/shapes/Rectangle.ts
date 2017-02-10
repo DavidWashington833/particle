@@ -3,7 +3,7 @@ module Particles {
     /**
      * Game
      */
-    export class Rect {
+    export class Rectangle {
         
         private _W : number;
         private _H : number;

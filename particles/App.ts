@@ -1,23 +1,23 @@
-/// <reference path="Rect.ts" />
-/// <reference path="Particle.ts" />
+/// <reference path="shapes/Rectangle.ts" />
+/// <reference path="shapes/Circle.ts" />
 
 
 module Particles {
 
-    let amout : number;
-    let W : number;
-    let H : number;
-    let X : number;
-    let Y : number;
-    let size : number;
-    let rect : Rect;
-    let r : number;
-    let g : number;
-    let b : number;
-    var particles : Array<Particle> = new Array<Particle>();
-    let canvas : HTMLCanvasElement;
-    let ctx : CanvasRenderingContext2D;
-    let father : HTMLElement;
+    let amout       : number;
+    let W           : number;
+    let H           : number;
+    let X           : number;
+    let Y           : number;
+    let size        : number;
+    let rect        : Rectangle;
+    let r           : number;
+    let g           : number;
+    let b           : number;
+    var particles   : Array<Circle> = new Array<Circle>();
+    let canvas      : HTMLCanvasElement;
+    let ctx         : CanvasRenderingContext2D;
+    let father      : HTMLElement;
 
     window.addEventListener('load', () => {
         
@@ -28,7 +28,7 @@ module Particles {
         canvas = <HTMLCanvasElement>document.getElementById('particle');
         ctx = canvas.getContext('2d');
 
-        rect = new Rect(canvas, ctx, W, H);
+        rect = new Rectangle(canvas, ctx, W, H);
 
         for(let i : number = 0; i < amout; i++) {
             X = Math.round(Math.random() * W);
@@ -37,7 +37,7 @@ module Particles {
             g = Math.floor(Math.random() * 255);
             b = Math.floor(Math.random() * 255);
             size = Math.random();
-            particles.push(new Particle(ctx, X, Y, size, `rgb(${r}, ${g}, ${b})`));
+            particles.push(new Circle(ctx, X, Y, size, `rgb(${r}, ${g}, ${b})`));
             console.log(particles[i].draw());
         }
 
