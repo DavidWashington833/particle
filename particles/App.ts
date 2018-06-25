@@ -1,26 +1,25 @@
 /// <reference path="shapes/Rectangle.ts" />
 /// <reference path="shapes/Circle.ts" />
 
+namespace Particles {
 
-module Particles {
-
-    let amout       : number;
-    let W           : number;
-    let H           : number;
-    let X           : number;
-    let Y           : number;
-    let size        : number;
-    let rect        : Rectangle;
-    let r           : number;
-    let g           : number;
-    let b           : number;
-    var particles   : Array<Circle> = new Array<Circle>();
-    let canvas      : HTMLCanvasElement;
-    let ctx         : CanvasRenderingContext2D;
-    let father      : HTMLElement;
+    let amout: number;
+    let W: number;
+    let H: number;
+    let X: number;
+    let Y: number;
+    let size: number;
+    let rect: Shapes.Rectangle;
+    let r: number;
+    let g: number;
+    let b: number;
+    var particles: Array<Shapes.Circle> = new Array<Shapes.Circle>();
+    let canvas: HTMLCanvasElement;
+    let ctx: CanvasRenderingContext2D;
+    let father: HTMLElement;
 
     window.addEventListener('load', () => {
-        
+
         amout = 2000;
         father = document.getElementById("header");
         W = father.clientWidth;
@@ -28,22 +27,24 @@ module Particles {
         canvas = <HTMLCanvasElement>document.getElementById('particle');
         ctx = canvas.getContext('2d');
 
-        rect = new Rectangle(canvas, ctx, W, H);
+        canvas.width = W;
+        canvas.height = H;
+        rect = new Shapes.Rectangle(ctx, W, H, '#000', .1);
 
-        for(let i : number = 0; i < amout; i++) {
+        for (let i: number = 0; i < amout; i++) {
             X = Math.round(Math.random() * W);
             Y = Math.round(Math.random() * H);
             r = Math.floor(Math.random() * 255);
             g = Math.floor(Math.random() * 255);
             b = Math.floor(Math.random() * 255);
             size = Math.random();
-            particles.push(new Circle(ctx, X, Y, size, `rgb(${r}, ${g}, ${b})`));
+            particles.push(new Shapes.Circle(ctx, X, Y, size, `rgb(${r}, ${g}, ${b})`, .5));
             console.log(particles[i].draw());
         }
 
         window.setInterval(() => {
             rect.draw();
-            for(let i : number = 0; i < amout; i++) {
+            for (let i: number = 0; i < amout; i++) {
                 X = (Math.random() * 2) - 1;
                 Y = (Math.random() * 2) - 1;
                 particles[i].move(X, Y);
@@ -54,12 +55,13 @@ module Particles {
     });
 
     window.addEventListener('resize', () => {
-        
-        W = father.clientWidth;
-        H = father.clientHeight;
+        const width = father.clientWidth;
+        const height = father.clientHeight;
 
-        rect.resizeWindow(W, H);
-        
+        canvas.width = width;
+        canvas.height = height;
+        rect.width = width;
+        rect.height = height;
     });
 
 }

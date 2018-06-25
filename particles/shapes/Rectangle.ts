@@ -1,39 +1,29 @@
-module Particles {
+namespace Shapes {
 
-    /**
-     * Game
-     */
     export class Rectangle {
-        
-        private _W : number;
-        private _H : number;
-        private _canvas : HTMLCanvasElement;
-        private _ctx : CanvasRenderingContext2D;
-        private _color : string;
 
-        constructor(canvas : HTMLCanvasElement, ctx : CanvasRenderingContext2D, W : number, H : number, color : string = '#000') {
-            this._W = W;
-            this._H = H;
-            this._canvas = canvas;
-            this._ctx = ctx;
-            this._color = color;
-            this.resizeWindow(W, H);
+        constructor(
+            private _context: CanvasRenderingContext2D,
+            private _width: number,
+            private _height: number,
+            private _color: string,
+            private _opacity: number
+        ) { }
+
+        public set width(v: number) {
+            this._width = v;
         }
 
-        public resizeWindow(W : number, H : number) : void {
-            this._W = W;
-            this._H = H;
-            this._canvas.width = W;
-            this._canvas.height = H;
-            this.draw();
+        public set height(v: number) {
+            this._height = v;
         }
 
-        public draw() : void {
-            this._ctx.globalAlpha = .5;
-            this._ctx.fillStyle = this._color;
-            this._ctx.fillRect(0, 0, this._W, this._H);
+        public draw(): void {
+            this._context.globalAlpha = this._opacity;
+            this._context.fillStyle = this._color;
+            this._context.fillRect(0, 0, this._width, this._height);
         }
-        
+
     }
 
 }
