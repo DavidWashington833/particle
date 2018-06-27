@@ -9,7 +9,7 @@ Na pasta raiz, executar o seguinte comando
 tsc --watch
 ```
 
-### Pré Requisito
+### Pré-Requisito
 
 Você precisa ter instalado o [NodeJS](https://nodejs.org/en/) e o [Typescript](https://www.typescriptlang.org/)
 
