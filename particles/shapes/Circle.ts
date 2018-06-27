@@ -11,6 +11,14 @@ namespace Shapes {
             private _opacity: number
         ) { }
 
+        public set positionX(v: number) {
+            this._positionX = v;
+        }
+
+        public set positionY(v: number) {
+            this._positionY = v;
+        }
+
         public draw(): void {
             this._context.save();
             this._context.beginPath();
