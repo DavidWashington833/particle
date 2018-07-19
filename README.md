@@ -1,19 +1,18 @@
-# particles
+# Particles
 
-Animação de particulas, é apenas uma experimento com Typescript.
+Particle animation, is an experiment with Typescript.
 
-## Iniciar compilação do Typescript
+## Getting Started
 
-Na pasta raiz, executar o seguinte comando
-```
-tsc --watch
-```
+These instructions will get you a copy of the project up and running on your local machine.
 
-### Pré-Requisito
+### Prerequisites
 
-Você precisa ter instalado o [NodeJS](https://nodejs.org/en/) e o [Typescript](https://www.typescriptlang.org/)
+You need to have [NodeJS](https://nodejs.org/en/) and [Typescript](https://www.typescriptlang.org/) installed.
 
-Para instalar o Typescript já com o NodeJS e o npm instalado
+### Installing
+
+To install Typescript.
 ```
 npm install -g typescript
 ```
@@ -21,3 +20,7 @@ npm install -g typescript
 ## Authors
 
 * **David Washington** - [davidwashington833](https://github.com/DavidWashington833)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
