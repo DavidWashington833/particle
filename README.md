@@ -17,6 +17,12 @@ To install Typescript.
 npm install -g typescript
 ```
 
+### Start Typescript
+
+```
+tsc --watch
+```
+
 ## Authors
 
 * **David Washington** - [davidwashington833](https://github.com/DavidWashington833)
